@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/konsultasi"
+        android:title="Konsultasi"
+        android:icon="@drawable/ic_baseline_add_shopping_cart_24"/>
+
+    <item
+        android:id="@+id/scan"
+        android:title="Scan"
+        android:icon="@drawable/ic_baseline_photo_camera_24"/>
+    <item
+        android:id="@+id/artikel"
+        android:title="Artikel"
+        android:icon="@drawable/ic_baseline_article_24"/>
+    <item
+        android:id="@+id/toko"
+        android:title="Toko"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"/>
+</menu>
