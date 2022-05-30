@@ -16,4 +16,3 @@ Mobile Development for Product Based Capstone Project Bangkit Academy 2022
 
 # Progress Report Mobile Development Path 
 1. Have made a UI/UX design
-2. 
