@@ -13,3 +13,7 @@ Mobile Development for Product Based Capstone Project Bangkit Academy 2022
 * [Machine Learning](https://github.com/memelabela/yourpetcare-ml)
 * [Mobile Development](https://github.com/vandarma27/yourpetcare-md)
 * [Cloud Computing](https://github.com/pradipaaisyah/yourpetcare-cc)
+
+# Progress Report Mobile Development Path 
+1. Have made a UI/UX design
+2. 
