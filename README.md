@@ -14,5 +14,9 @@ Mobile Development for Product Based Capstone Project Bangkit Academy 2022
 * [Mobile Development](https://github.com/vandarma27/yourpetcare-md)
 * [Cloud Computing](https://github.com/pradipaaisyah/yourpetcare-cc)
 
-# Progress Report Mobile Development Path 
+# Your Pet Care Mobile Development 
+To create this application, we use the MVVM architecture. Then use Camerax to take pictures. Therefore, using tensor flow lite to implement ML model to android app via API provided by Cloud Computing and for the design itself, We use Figma and most importantly native Kotlin and android studio to build android apps.
+
+
+# Progress Report Mobile Development Path: 
 1. Have made a UI/UX design
