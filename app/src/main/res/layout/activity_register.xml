@@ -88,9 +88,10 @@
         app:layout_constraintTop_toBottomOf="@+id/password_regist" />
 
     <TextView
+        android:id="@+id/tv_adaakun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/interregular"
+        android:fontFamily="@font/intermedium"
         android:gravity="center"
         android:text="@string/sudah_ada_akun"
         android:textColor="@color/black"

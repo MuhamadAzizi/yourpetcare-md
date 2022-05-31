@@ -77,9 +77,10 @@
         app:layout_constraintTop_toBottomOf="@+id/password_login" />
 
     <TextView
+        android:id="@+id/tv_blmpunyaakun"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/interregular"
+        android:fontFamily="@font/intermedium"
         android:gravity="center"
         android:text="@string/blm_ada_akun"
         android:textColor="@color/black"

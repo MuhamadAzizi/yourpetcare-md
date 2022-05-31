@@ -2,6 +2,7 @@ package com.bangkit.yourpetcare.konsultasi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bangkit.yourpetcare.R
 
 class KonsultasiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

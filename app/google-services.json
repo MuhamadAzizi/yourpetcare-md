@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "215587383773",
+    "firebase_url": "https://your-pet-care-default-rtdb.firebaseio.com",
+    "project_id": "your-pet-care",
+    "storage_bucket": "your-pet-care.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215587383773:android:25d4001677b4b3655fae34",
+        "android_client_info": {
+          "package_name": "com.bangkit.yourpetcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "215587383773-ucimtrnahil4r5mgn2ipnsop2nlc1ksk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIsyJGmLl5Scrb5yT56x1KeLHW_OdkIXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "215587383773-ucimtrnahil4r5mgn2ipnsop2nlc1ksk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
