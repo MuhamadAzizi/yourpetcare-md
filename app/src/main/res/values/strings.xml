@@ -2,5 +2,7 @@
     <string name="app_name">Yourpetcare</string>
     <string name="blm_ada_akun">Belum punya akun? <b> Sign Up </b></string>
     <string name="sudah_ada_akun">Sudah punya akun? <b> Sign In </b></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

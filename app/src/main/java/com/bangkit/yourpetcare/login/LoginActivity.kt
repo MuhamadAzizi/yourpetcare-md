@@ -90,9 +90,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun failureDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Berhasil Login")
-            .setMessage("Selamat anda berhasil login")
-            .setIcon(R.drawable.ic_baseline_check_24)
+            .setTitle("Gagal Login")
+            .setMessage("Anda gagal login, cek koneksi internet anda")
+            .setIcon(R.drawable.ic_baseline_clear_24)
             .setPositiveButton("oke"){
                 dialog, _ ->
                 dialog.dismiss()
@@ -101,9 +101,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun successDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Gagal Login")
-            .setMessage("Mohon maaf, anda gagal login, cek koneksi internet anda")
-            .setIcon(R.drawable.ic_baseline_clear_24)
+            .setTitle("Berhasil Login")
+            .setMessage("Selamat anda berhasil login")
+            .setIcon(R.drawable.ic_baseline_check_24)
             .setPositiveButton("oke"){
                 dialog, _ ->
                 dialog.dismiss()

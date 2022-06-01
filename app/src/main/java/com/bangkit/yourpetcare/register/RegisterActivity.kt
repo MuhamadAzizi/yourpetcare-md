@@ -62,7 +62,8 @@ class RegisterActivity : AppCompatActivity() {
                         "uid" to uid,
                         "username" to username,
                         "email" to email,
-                        "password" to password
+                        "password" to password,
+                        "role" to "user"
                     )
 
                     uid.let {

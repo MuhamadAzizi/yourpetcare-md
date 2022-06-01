@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Yourpetcare">
         <activity
+            android:name=".artikel.hewan.HewanGridActivity"
+            android:exported="false" />
+        <activity
+            android:name=".artikel.hewan.HewanAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".artikel.artikel.ArtikelAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".artikel.artikel.ArtikelDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".artikel.hewan.HewanDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".pembelian.DetailPembelianActivity"
             android:exported="false" />
         <activity
@@ -21,10 +36,10 @@
             android:name=".artikel.ArtikelActivity"
             android:exported="false" />
         <activity
-            android:name="com.bangkit.yourpetcare.pembelian.shop.ShopActivity"
+            android:name=".pembelian.shop.ShopActivity"
             android:exported="false" />
         <activity
-            android:name="com.bangkit.yourpetcare.pembelian.obat.ObatActivity"
+            android:name=".pembelian.obat.ObatActivity"
             android:exported="false" />
         <activity
             android:name=".konsultasi.KonsultasiActivity"
@@ -43,7 +58,7 @@
         </activity>
         <activity
             android:name=".beranda.MainActivity"
-            android:exported="true"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>
