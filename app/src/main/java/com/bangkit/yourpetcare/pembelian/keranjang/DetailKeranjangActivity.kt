@@ -119,6 +119,7 @@ class DetailKeranjangActivity : AppCompatActivity() {
                 }
                 binding?.tvTotal?.text = "Rp. ${formater.format(totalPrice)}"
                 binding?.textView14?.text = "Rp. ${formater.format(totalPrice)}"
+                binding?.textView17?.text = "Rp. ${formater.format(totalPrice)}"
             }
     }
 
@@ -172,6 +173,7 @@ class DetailKeranjangActivity : AppCompatActivity() {
                         "paymentProof" to "",
                         "username" to username
                     )
+
                     FirebaseFirestore
                         .getInstance()
                         .collection("order")
@@ -179,12 +181,15 @@ class DetailKeranjangActivity : AppCompatActivity() {
                         .set(data)
                         .addOnCompleteListener {
                             if(it.isSuccessful){
+                                progressDialog.show()
                                 deleteCart(progressDialog)
                             }else{
                                 progressDialog.dismiss()
                                 showFailureDialogCart()
                             }
                         }
+
+
                 }
             }
     }
@@ -201,7 +206,6 @@ class DetailKeranjangActivity : AppCompatActivity() {
             }
         progressDialog.dismiss()
         showSuccessDialogCart()
-
     }
 
     private fun showSuccessDialogCart() {
@@ -213,45 +217,13 @@ class DetailKeranjangActivity : AppCompatActivity() {
                 dialog.dismiss()
                 binding?.tvTotal?.text = "Rp. 0"
                 binding?.textView14?.text = "Rp. 0"
+                binding?.textView17?.text = "Rp. 0"
                 binding?.checkout?.visibility = View.GONE
+                binding?.addProdukDetail?.visibility = View.GONE
             }.show()
-        redirectPesanan()
+        initCarList()
     }
 
-    private fun redirectPesanan() {
-        val pesananFragment = TokoFragment()
-        val fragment: Fragment? =
-
-            supportFragmentManager.findFragmentByTag(TokoFragment::class.java.simpleName)
-
-        if (fragment !is ObatFragment) {
-            supportFragmentManager.beginTransaction()
-                .add(R.id.constraint2, pesananFragment, TokoFragment::class.java.simpleName)
-                .commit()
-
-            binding?.imageButtondetailpesanan?.visibility = View.GONE
-            binding?.addProdukDetail?.visibility = View.GONE
-            binding?.textView8?.visibility = View.GONE
-            binding?.recyclerviewDetailPesanan?.visibility = View.GONE
-            binding?.view4?.visibility = View.GONE
-            binding?.textView9?.visibility = View.GONE
-            binding?.textView10?.visibility = View.GONE
-            binding?.textView11?.visibility = View.GONE
-            binding?.textView12?.visibility = View.GONE
-            binding?.textView13?.visibility = View.GONE
-            binding?.view5?.visibility = View.GONE
-            binding?.textView14?.visibility = View.GONE
-            binding?.textView15?.visibility = View.GONE
-            binding?.textView16?.visibility = View.GONE
-            binding?.textView17?.visibility = View.GONE
-            binding?.textView18?.visibility = View.GONE
-            binding?.radioGroup?.visibility = View.GONE
-            binding?.view20?.visibility = View.GONE
-            binding?.textView21?.visibility = View.GONE
-            binding?.tvTotal?.visibility = View.GONE
-            binding?.checkout?.visibility = View.GONE
-        }
-    }
 
     private fun showFailureDialogCart() {
         AlertDialog.Builder(this)

@@ -1,5 +1,6 @@
 package com.bangkit.yourpetcare.pembelian.keranjang
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,8 +24,6 @@ class KeranjangActivity : AppCompatActivity() {
         binding = ActivityKeranjangBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        initRecyclerView()
-
         binding?.imageButton?.setOnClickListener {
             onBackPressed()
         }
@@ -37,6 +36,9 @@ class KeranjangActivity : AppCompatActivity() {
         val subTotalPrice = binding?.textView7
         val pesanButton = binding?.pesan
 
+        val progressDialog = ProgressDialog(this)
+
+
         binding?.recyclerviewKeranjang?.layoutManager = LinearLayoutManager(this)
         adapter = KeranjangAdapter(subTotalPrice, pesanButton, "cart")
         binding?.recyclerviewKeranjang?.adapter = adapter
@@ -48,6 +50,9 @@ class KeranjangActivity : AppCompatActivity() {
         viewModel.getCartList().observe(this){
             cart->
             if(cart.size > 0){
+                progressDialog.setMessage("Harap ditunggu hingga proses selesai")
+                progressDialog.setCanceledOnTouchOutside(false)
+                progressDialog.dismiss()
                 binding?.progressbar?.visibility = View.GONE
                 binding?.noData?.visibility = View.GONE
                 binding?.pesan?.visibility = View.VISIBLE
@@ -57,6 +62,7 @@ class KeranjangActivity : AppCompatActivity() {
                 binding?.pesan?.visibility = View.GONE
                 binding?.progressbar?.visibility = View.GONE
                 binding?.noData?.visibility = View.VISIBLE
+                binding?.textView7?.text = "Rp. 0"
             }
         }
     }
@@ -80,5 +86,10 @@ class KeranjangActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initRecyclerView()
     }
 }

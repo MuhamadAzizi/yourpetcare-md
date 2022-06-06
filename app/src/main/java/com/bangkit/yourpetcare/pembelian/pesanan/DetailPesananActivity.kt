@@ -28,9 +28,7 @@ class DetailPesananActivity : AppCompatActivity() {
 
 
         val formater : NumberFormat = DecimalFormat("#,###")
-        val myUid = FirebaseAuth.getInstance().currentUser!!.uid
         model = intent.getParcelableExtra(EXTRA_ORDER)
-
         binding?.tvHarusDibayar?.text = "Rp. ${formater.format(model?.totalPrice)}"
         binding?.tvBayar?.text = "Rp. ${formater.format(model?.totalPrice)}"
 

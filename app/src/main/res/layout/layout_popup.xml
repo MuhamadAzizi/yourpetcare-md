@@ -34,7 +34,7 @@
             android:id="@+id/submit"
             android:textAllCaps="false"
             android:fontFamily="@font/intermedium"
-            android:text="Lanjutkan"
+            android:text="Submit"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="45dp"/>

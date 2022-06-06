@@ -26,12 +26,7 @@ class PesananAdapter : RecyclerView.Adapter<PesananAdapter.ViewHolder>() {
         fun bind(orderModel: OrderModel) {
             val formatter:NumberFormat = DecimalFormat("#,###")
             with(binding){
-//                Glide
-//                    .with(itemView.context)
-//                    .load(orderModel.img)
-//                    .into(circleImageView)
-
-                orderid.text = "Order Id : ABC - ${orderModel.orderId}"
+                orderid.text = "Order Id : ABC-${orderModel.orderId}"
                 username.text = "Pembeli: ${orderModel.username}"
                 nominal.text = "Total: Rp. ${formatter.format(orderModel.totalPrice)}"
                 waktu.text = "Tanggal: ${orderModel.date}"
@@ -42,14 +37,10 @@ class PesananAdapter : RecyclerView.Adapter<PesananAdapter.ViewHolder>() {
                     itemView.context.startActivity(intent)
                 }
             }
-
-
-
         }
 
     }
 
-    private val produkList = ArrayList<OrderModel>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemPemesananBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)

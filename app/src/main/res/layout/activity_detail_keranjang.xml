@@ -148,7 +148,8 @@
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:textAlignment="viewEnd"
         android:layout_height="wrap_content"
         android:layout_marginStart="296dp"
         android:layout_marginTop="15dp"
@@ -189,14 +190,17 @@
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/intermedium"
         android:text="Rp 0"
+        android:layout_marginEnd="20dp"
+        android:textAlignment="viewEnd"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
@@ -214,19 +218,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view5" />
 
+
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/view20"
         app:layout_constraintStart_toStartOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView18">
+        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        app:layout_constraintVertical_bias="0.391">
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/purple_700"
             android:fontFamily="@font/intermedium"
             android:text="    COD"
-            android:buttonTint="@color/purple_700"
             android:textSize="12sp"
             tools:layout_editor_absoluteX="21dp"
             tools:layout_editor_absoluteY="531dp" />
@@ -234,14 +241,13 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/purple_700"
             android:fontFamily="@font/intermedium"
             android:text="    GOPAY"
-            android:buttonTint="@color/purple_700"
             android:textSize="12sp"
             tools:layout_editor_absoluteX="21dp"
             tools:layout_editor_absoluteY="531dp" />
     </RadioGroup>
-
 
     <TextView
         android:id="@+id/textView21"
