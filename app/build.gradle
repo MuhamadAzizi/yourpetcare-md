@@ -33,6 +33,7 @@ android {
     }
     buildFeatures{
         viewBinding true
+        mlModelBinding true
     }
 }
 
@@ -64,5 +65,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //tensor
+    implementation 'org.tensorflow:tensorflow-lite-support:0.1.0'
+    implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0'
 
 }

@@ -125,7 +125,7 @@ class ArtikelAddActivity : AppCompatActivity() {
                         Glide.with(this).load(dp).into(binding!!.imgAddArtikel)
                     }
                     .addOnFailureListener {
-                        e:Exception->progresDialog.dismiss()
+                            e:Exception->progresDialog.dismiss()
                         Toast.makeText(this, "Gagal unggah gambar", Toast.LENGTH_SHORT).show()
                     }
             }

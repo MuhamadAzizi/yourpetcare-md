@@ -22,7 +22,7 @@ class ArtikelViewModel : ViewModel() {
                 .collection("artikel")
                 .get()
                 .addOnSuccessListener {
-                    documents ->
+                        documents ->
                     for (document in documents){
                         val model = ArtikelModel()
                         model.judul_artikel = document.data["judul_artikel"].toString()
@@ -34,7 +34,7 @@ class ArtikelViewModel : ViewModel() {
                     }
                     artikelList.postValue(listItems)
                 }.addOnFailureListener {
-                    exception -> Log.w(TAG, "Error:", exception)
+                        exception -> Log.w(TAG, "Error:", exception)
                 }
         }catch (error: Exception){
             error.printStackTrace()

@@ -3,17 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_produk"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="#C4C4C4"
+    android:layout_margin="7dp"
+    app:cardElevation="10dp"
+    app:elevation="10dp"
     app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="190dp"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent">
         <ImageView
             android:id="@+id/img_pembelian"
+            android:background="#c4c4c4"
+            android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
@@ -21,10 +26,15 @@
             android:id="@+id/nama_pembelian"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="78dp"
-            android:text="Nama produk"
-            android:textColor="@color/black"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/background_button_pembelian"
             android:fontFamily="@font/interregular"
+            android:gravity="center"
+            android:text="Nama produk"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/img_pembelian"
             app:layout_constraintStart_toStartOf="@+id/img_pembelian"
             app:layout_constraintTop_toTopOf="@+id/img_pembelian" />
@@ -32,12 +42,19 @@
         <TextView
             android:id="@+id/price_pembelian"
             android:layout_width="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/background_button_pembelian"
+            android:textAlignment="center"
             android:layout_height="wrap_content"
-            android:text="Rp. 0"
-            android:textColor="@color/black"
             android:fontFamily="@font/interregular"
+            android:text="Rp. 0"
+            android:maxLength="13"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/nama_pembelian"
-            app:layout_constraintHorizontal_bias="0.49"
+            app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="@+id/nama_pembelian"
             app:layout_constraintTop_toBottomOf="@+id/nama_pembelian" />
 
@@ -45,15 +62,17 @@
             android:id="@+id/beli_produk_pembelian"
             android:layout_width="90dp"
             android:layout_height="30dp"
-            android:text="Beli"
-            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/background_button_pembelian"
             android:fontFamily="@font/interregular"
             android:gravity="center"
-            android:background="@drawable/background_button_pembelian"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Beli"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/img_pembelian"
             app:layout_constraintEnd_toEndOf="@+id/price_pembelian"
-            app:layout_constraintHorizontal_bias="0.448"
             app:layout_constraintStart_toStartOf="@+id/price_pembelian"
-            app:layout_constraintTop_toBottomOf="@+id/price_pembelian" />
+            app:layout_constraintTop_toBottomOf="@+id/price_pembelian"
+            app:layout_constraintVertical_bias="0.333" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

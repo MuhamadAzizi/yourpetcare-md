@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_button_pembelian"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp"
+        tools:ignore="UselessParent">
+            <TextView
+                android:fontFamily="@font/intermedium"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Masukkan Produk /n Yang Anda Inginkan"/>
+        <EditText
+            android:id="@+id/qty"
+            android:layout_marginTop="20dp"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:hint="Inputkan Jumlah Barang"
+            android:fontFamily="@font/interregular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/submit"
+            android:textAllCaps="false"
+            android:fontFamily="@font/intermedium"
+            android:text="Lanjutkan"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"/>
+        <Button
+            android:id="@+id/cancel"
+            android:textAllCaps="false"
+            android:fontFamily="@font/intermedium"
+            android:text="Batal"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

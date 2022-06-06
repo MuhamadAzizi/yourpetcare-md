@@ -16,7 +16,6 @@ import com.bangkit.yourpetcare.artikel.hewan.HewanAddActivity
 import com.bangkit.yourpetcare.artikel.hewan.HewanGridActivity
 import com.bangkit.yourpetcare.artikel.hewan.HewanViewModel
 import com.bangkit.yourpetcare.databinding.FragmentArtikelBinding
-import com.bangkit.yourpetcare.hewan.HewanActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -44,9 +43,9 @@ class ArtikelFragment : Fragment() {
         binding?.progressbarArtikel?.visibility  = View.VISIBLE
         viewModel.setListArtikel()
         viewModel.getArtikelList().observe(viewLifecycleOwner){
-            artikel -> if(artikel.size > 0){
-                artikelAdapter!!.setData(artikel)
-            }
+                artikel -> if(artikel.size > 0){
+            artikelAdapter!!.setData(artikel)
+        }
             binding?.progressbarArtikel?.visibility = View.GONE
         }
     }
@@ -59,13 +58,13 @@ class ArtikelFragment : Fragment() {
         binding?.recyclerviewHewan?.adapter = hewanAdapter
 
         val viewModel = ViewModelProvider(this)[HewanViewModel::class.java]
-        binding?.progressbarArtikel?.visibility  = View.VISIBLE
+        binding?.progressbarHewan?.visibility  = View.VISIBLE
         viewModel.setListHewan()
         viewModel.getHewanList().observe(viewLifecycleOwner){
                 hewan -> if(hewan.size > 0){
             hewanAdapter!!.setData(hewan)
         }
-            binding?.progressbarArtikel?.visibility = View.GONE
+            binding?.progressbarHewan?.visibility = View.GONE
         }
     }
 

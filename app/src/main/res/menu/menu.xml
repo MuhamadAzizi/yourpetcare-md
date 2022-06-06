@@ -16,5 +16,5 @@
     <item
         android:id="@+id/fragment_toko"
         android:title="Toko"
-        android:icon="@drawable/ic_baseline_shopping_cart_24"/>
+        android:icon="@drawable/ic_baseline_store_24"/>
 </menu>

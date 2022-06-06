@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pembelian.obat.AddDataObatActivity">
+
+    <EditText
+        android:id="@+id/nama_produk_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:hint="Input Nama Produk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/dekripsi_produk_add"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="28dp"
+        android:hint="Input Deskripsi Produk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nama_produk_add" />
+
+    <EditText
+        android:id="@+id/harga_produk_add"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="28dp"
+        android:inputType="number"
+        android:hint="Input Harga Produk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dekripsi_produk_add" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/img_add_produk"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="60dp"
+        android:scaleType="centerCrop"
+        app:riv_corner_radius="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/harga_produk_add" />
+
+    <ImageView
+        android:id="@+id/img_add"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/ic_baseline_photo_camera_24"
+        app:layout_constraintBottom_toBottomOf="@+id/img_add_produk"
+        app:layout_constraintEnd_toEndOf="@+id/img_add_produk"
+        app:layout_constraintStart_toStartOf="@+id/img_add_produk"
+        app:layout_constraintTop_toTopOf="@+id/img_add_produk" />
+
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambah Produk"
+        android:layout_marginHorizontal="20dp"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_add_produk"
+        app:layout_constraintVertical_bias="0.258" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@
     package="com.bangkit.yourpetcare">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Yourpetcare">
+        <activity
+            android:name=".pembelian.pesanan.DetailPesananActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pembelian.keranjang.DetailKeranjangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pembelian.keranjang.KeranjangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pembelian.shop.AddDataShopActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pembelian.obat.AddDataObatActivity"
+            android:exported="false" />
         <activity
             android:name=".artikel.hewan.HewanGridActivity"
             android:exported="false" />
@@ -28,12 +44,6 @@
             android:exported="false" />
         <activity
             android:name=".pembelian.DetailPembelianActivity"
-            android:exported="false" />
-        <activity
-            android:name=".hewan.HewanActivity"
-            android:exported="false" />
-        <activity
-            android:name=".artikel.ArtikelActivity"
             android:exported="false" />
         <activity
             android:name=".pembelian.shop.ShopActivity"

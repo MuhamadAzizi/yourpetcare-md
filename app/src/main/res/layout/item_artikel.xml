@@ -13,6 +13,7 @@
         android:id="@+id/image"
         android:layout_width="155dp"
         android:layout_height="130dp"
+        android:scaleType="centerCrop"
         android:layout_gravity="center|left"
         android:layout_marginStart="16dp"
         android:background="@drawable/background_image_artikel"
@@ -37,13 +38,15 @@
         android:id="@+id/tv_detail_artikel_awal"
         android:layout_width="190dp"
         android:layout_height="100dp"
-        android:layout_marginLeft="20dp"
+        android:padding="10dp"
+        android:maxLines="5"
+        android:textAlignment="gravity"
+        android:ellipsize="end"
         android:text="is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
         app:layout_constraintBottom_toBottomOf="@+id/image"
         app:layout_constraintEnd_toEndOf="parent"
-        android:maxLines="4"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toEndOf="@+id/image"
         app:layout_constraintTop_toBottomOf="@+id/tv_judul_artikel_awal"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
