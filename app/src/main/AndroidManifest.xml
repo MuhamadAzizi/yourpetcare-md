@@ -52,9 +52,6 @@
             android:name=".pembelian.obat.ObatActivity"
             android:exported="false" />
         <activity
-            android:name=".konsultasi.KonsultasiActivity"
-            android:exported="false" />
-        <activity
             android:name=".register.RegisterActivity"
             android:exported="false" />
         <activity
