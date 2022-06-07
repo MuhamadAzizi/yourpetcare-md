@@ -30,7 +30,7 @@ class ViewModelToko : ViewModel() {
                         model.deskripsiProduk = document.data["deskripsi_produk"].toString()
                         model.hargaProduk = document.data["harga_produk"].toString().toLong()
                         model.imgProduk = document.data["image_produk"].toString()
-                        model.idProduk = document.data["id_produk"].toString()
+                        model.produk_id = document.data["produk_id"].toString()
                         model.uid = document.data["uid"].toString()
 
                         listItems.add(model)
@@ -59,7 +59,7 @@ class ViewModelToko : ViewModel() {
                         model.deskripsiProduk = document.data["deskripsi_produk"].toString()
                         model.hargaProduk = document.data["harga_produk"].toString().toLong()
                         model.imgProduk = document.data["image_produk"].toString()
-                        model.idProduk = document.data["id_produk"].toString()
+                        model.produk_id = document.data["produk_id"].toString()
                         model.uid = document.data["uid"].toString()
 
                         listItems.add(model)

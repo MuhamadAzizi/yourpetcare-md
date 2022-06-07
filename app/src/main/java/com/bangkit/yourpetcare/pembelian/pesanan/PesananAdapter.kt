@@ -27,7 +27,7 @@ class PesananAdapter : RecyclerView.Adapter<PesananAdapter.ViewHolder>() {
             val formatter:NumberFormat = DecimalFormat("#,###")
             with(binding){
                 orderid.text = "Order Id : ABC-${orderModel.orderId}"
-                username.text = "Pembeli: ${orderModel.username}"
+                username.text = "Status: ${orderModel.status}"
                 nominal.text = "Total: Rp. ${formatter.format(orderModel.totalPrice)}"
                 waktu.text = "Tanggal: ${orderModel.date}"
 

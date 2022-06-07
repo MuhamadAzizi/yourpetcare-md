@@ -13,5 +13,6 @@ data class OrderModel (
     var totalPrice : Long? = null,
     var userId : String? = null,
     var username : String? = null,
-    var paymentProof : String? = null
+    var paymentProof : String? = null,
+    var status : String? = "Belum Bayar"
 ):Parcelable

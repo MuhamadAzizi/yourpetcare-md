@@ -28,7 +28,7 @@ class DetailPembelianActivity : AppCompatActivity() {
 
     private var binding : ActivityDetailPembelianBinding? = null
     private var model : TokoModel? = null
-    private var cartList : ArrayList<TokoModel> = ArrayList()
+    private var cartList : ArrayList<KeranjangModel> = ArrayList()
     private var username : String? = null
 
 
@@ -95,18 +95,19 @@ class DetailPembelianActivity : AppCompatActivity() {
             progressDialog.setCanceledOnTouchOutside(false)
             progressDialog.show()
 
-            getIdUser(uid)
 
             val price = model?.hargaProduk?.times(qty.toLong())
+            getIdUser(uid)
 
             val paid = mapOf(
                 "orderId" to orderId,
                 "userId" to uid,
+                "id_produk" to cartList,
                 "date" to formatDate,
                 "status" to "Belum Bayar",
-                "qty" to qty.toLong(),
-                "img" to model?.imgProduk,
-                "price" to price,
+//                "qty" to qty.toLong(),
+//                "img" to model?.imgProduk,
+                "totalPrice" to price,
                 "ongkir" to 0L,
                 "paymentProof" to "",
                 "username" to username
@@ -169,7 +170,7 @@ class DetailPembelianActivity : AppCompatActivity() {
             val cart = mapOf(
                 "cartId" to cartId,
                 "userId" to uid,
-                "produk_id" to model?.idProduk,
+                "produk_id" to model?.produk_id,
                 "nama_produk" to model?.namaProduk,
                 "qty" to qty.toLong(),
                 "description_produk" to model?.deskripsiProduk,

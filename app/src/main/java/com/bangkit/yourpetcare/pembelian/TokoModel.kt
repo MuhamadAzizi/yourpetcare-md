@@ -8,7 +8,7 @@ data class TokoModel (
     var category : String? = null,
     var namaProduk : String? = null,
     var deskripsiProduk : String? = null,
-    var idProduk : String? = null,
+    var produk_id : String? = null,
     var hargaProduk : Long? = null,
     var imgProduk : String? = null,
     var uid : String? = null,

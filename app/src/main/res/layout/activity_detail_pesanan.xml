@@ -56,15 +56,18 @@
         android:id="@+id/textView19"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
         android:layout_margin="5dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/interregular"
         android:gravity="center_horizontal"
         android:text="Anda Belum Melakukan Pembayaran\nHarap Melakukan Melakukan Pembayaran Terlebih Dahulu"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/bawah"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.105" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bawah"
@@ -75,7 +78,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19"
         app:layout_constraintVertical_bias="1.0">
 
         <View
@@ -195,14 +197,16 @@
 
         <TextView
             android:id="@+id/tv_isi_subtotal"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="288dp"
+            android:layout_marginEnd="20dp"
             android:fontFamily="@font/interregular"
             android:text="Rp 0"
+            android:textAlignment="viewEnd"
             app:layout_constraintBottom_toBottomOf="@+id/tv_subtotal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/tv_subtotal"
             app:layout_constraintTop_toTopOf="@+id/tv_subtotal"
             app:layout_constraintVertical_bias="0.0" />
@@ -235,12 +239,14 @@
 
         <TextView
             android:id="@+id/tv_harus_dibayar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginEnd="20dp"
+            android:textAlignment="viewEnd"
             android:layout_height="wrap_content"
             android:layout_marginStart="200dp"
-            android:fontFamily="@font/interregular"
+            android:fontFamily="@font/interbold"
             android:text="Rp 123"
-            android:textSize="17sp"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/tv_bayar"
             app:layout_constraintEnd_toEndOf="@+id/tv_isi_gratis"
             app:layout_constraintStart_toEndOf="@+id/tv_bayar"
