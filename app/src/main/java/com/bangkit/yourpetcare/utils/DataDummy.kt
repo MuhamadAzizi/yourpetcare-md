@@ -15,7 +15,7 @@ object DataDummy {
                     riwayatPendidikan = "Universitas Lorem Ipsum $i",
                     tempatPraktik = "Bikini bottom",
                     uid = "112$i",
-                    profesi = "Dokter Kucing"
+                    spesialis = "Dokter Kucing"
                 )
             )
         }

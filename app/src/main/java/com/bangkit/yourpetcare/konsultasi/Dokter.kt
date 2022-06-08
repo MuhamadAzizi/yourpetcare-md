@@ -12,6 +12,6 @@ data class Dokter(
     val riwayatPendidikan: String,
     val tempatPraktik: String,
     val uid: String,
-    val profesi: String,
+    val spesialis: String,
     val image: String = "motorcycle.png"
 ) : Parcelable
