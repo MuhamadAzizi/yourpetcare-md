@@ -9,6 +9,8 @@ import com.bangkit.yourpetcare.databinding.ItemListDokterBinding
 
 class KonsultasiAdapter(private val listDokter: ArrayList<Dokter>) : RecyclerView.Adapter<KonsultasiAdapter.ViewHolder>() {
 
+    var onItemClicked: ((Dokter) -> Unit)? = null
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -27,6 +29,9 @@ class KonsultasiAdapter(private val listDokter: ArrayList<Dokter>) : RecyclerVie
         fun bind(dokter: Dokter) {
             binding.imgDokter.setImageDrawable(ResourcesCompat.getDrawable(itemView.resources, R.drawable.motorcycle, null))
             binding.tvNamadokter.text = dokter.username
+            itemView.setOnClickListener {
+                onItemClicked?.invoke(dokter)
+            }
         }
     }
 }

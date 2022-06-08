@@ -1,5 +1,6 @@
 package com.bangkit.yourpetcare.konsultasi
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.yourpetcare.databinding.FragmentKonsultasiBinding
+import com.bangkit.yourpetcare.konsultasi.detail_dokter.DetailDokterActivity
 import com.bangkit.yourpetcare.utils.DataDummy
 
 class KonsultasiFragment : Fragment() {
@@ -34,6 +36,11 @@ class KonsultasiFragment : Fragment() {
         binding.rvDokter.layoutManager = LinearLayoutManager(context)
         binding.rvDokter.adapter = adapter
         binding.rvDokter.setHasFixedSize(true)
+        adapter.onItemClicked = { dokter ->
+            val intent = Intent(context, DetailDokterActivity::class.java)
+            intent.putExtra(DetailDokterActivity.EXTRA_DATA, dokter)
+            startActivity(intent)
+        }
     }
 
     override fun onDestroy() {
