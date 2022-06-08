@@ -5,13 +5,13 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Dokter(
-    val email: String,
-    val username: String,
-    val nama: String,
-    val nomor: String,
-    val riwayatPendidikan: String,
-    val tempatPraktik: String,
-    val uid: String,
-    val spesialis: String,
-    val image: String = "motorcycle.png"
+    val email: String? = null,
+    val username: String? = null,
+    val nama: String? = null,
+    val nomor: String? = null,
+    val riwayatPendidikan: String? = null,
+    val tempatPraktik: String? = null,
+    val uid: String? = null,
+    val spesialis: String? = null,
+    val image: String? = null
 ) : Parcelable

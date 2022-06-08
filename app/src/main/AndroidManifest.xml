@@ -14,6 +14,7 @@
         android:theme="@style/Theme.Yourpetcare">
         <activity
             android:name=".konsultasi.chat_dokter.PesanActivity"
+            android:parentActivityName=".beranda.MainActivity"
             android:exported="false" />
         <activity
             android:name=".konsultasi.detail_dokter.DetailDokterActivity"
