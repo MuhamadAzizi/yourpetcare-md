@@ -40,7 +40,7 @@ class AddDataObatActivity : AppCompatActivity() {
 
     private fun validation() {
         val namaProduk = binding?.namaProdukAdd?.text.toString().trim()
-        val deskripsiProduk = binding?.dekripsiProdukAdd?.text.toString().trim()
+        val deskripsiProduk = binding?.deskripsiProdukAdd?.text.toString().trim()
         val hargaProduk = binding?.hargaProdukAdd?.text.toString().trim()
 
         when {

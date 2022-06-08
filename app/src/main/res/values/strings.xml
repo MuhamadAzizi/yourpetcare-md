@@ -4,5 +4,6 @@
     <string name="sudah_ada_akun">Sudah punya akun? <b> Sign In </b></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nama_lengkap_dan_gelar_jika_ada">Nama Lengkap <b>(dan gelar jika ada)</b>></string>
 
 </resources>

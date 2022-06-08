@@ -63,7 +63,12 @@ class RegisterActivity : AppCompatActivity() {
                         "username" to username,
                         "email" to email,
                         "password" to password,
-                        "role" to "user"
+                        "role" to "user",
+                        "image" to " ",
+                        "no_str" to "-",
+                        "spesialis" to "-",
+                        "riwayat_pendidikan" to "-",
+                        "tempat_praktik" to "-"
                     )
 
                     uid.let {

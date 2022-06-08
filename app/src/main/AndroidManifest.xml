@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Yourpetcare">
         <activity
+            android:name=".konsultasi.EditKonsultasiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".konsultasi.KonsultasiDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".pembelian.pesanan.DetailPesananActivity"
             android:exported="false" />
         <activity
@@ -44,12 +50,6 @@
             android:exported="false" />
         <activity
             android:name=".pembelian.DetailPembelianActivity"
-            android:exported="false" />
-        <activity
-            android:name=".pembelian.shop.ShopActivity"
-            android:exported="false" />
-        <activity
-            android:name=".pembelian.obat.ObatActivity"
             android:exported="false" />
         <activity
             android:name=".konsultasi.KonsultasiActivity"

@@ -42,6 +42,7 @@ class PesananFragment : Fragment() {
     private fun initProcessOrder(s: String) {
         val viewModel = ViewModelProvider(this)[PesananViewModel::class.java]
         binding?.progressbarPesanan?.visibility = View.VISIBLE
+        binding?.noData?.visibility = View.VISIBLE
         binding?.recyclerviewPesanan?.layoutManager = LinearLayoutManager(activity)
         adapter = PesananAdapter()
         binding?.recyclerviewPesanan?.adapter = adapter
@@ -58,7 +59,7 @@ class PesananFragment : Fragment() {
                 binding?.noData?.visibility = View.GONE
                 adapter!!.setData(process)
             }else{
-                binding?.progressbarPesanan?.visibility = View.GONE
+                binding?.progressbarPesanan?.visibility = View.VISIBLE
                 binding?.noData?.visibility = View.VISIBLE
             }
         }

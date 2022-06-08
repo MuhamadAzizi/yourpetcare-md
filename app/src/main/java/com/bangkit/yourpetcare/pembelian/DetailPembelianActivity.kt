@@ -11,9 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.bangkit.yourpetcare.R
-import com.bangkit.yourpetcare.artikel.artikel.ArtikelModel
-import com.bangkit.yourpetcare.databinding.ActivityDetailPembelianBinding
-import com.bangkit.yourpetcare.pembelian.keranjang.DetailKeranjangActivity
+import com.bangkit.yourpetcare.databinding.ActivitydetailpembelianBinding
 import com.bangkit.yourpetcare.pembelian.keranjang.KeranjangActivity
 import com.bangkit.yourpetcare.pembelian.keranjang.KeranjangModel
 import com.bumptech.glide.Glide
@@ -26,7 +24,7 @@ import java.util.*
 
 class DetailPembelianActivity : AppCompatActivity() {
 
-    private var binding : ActivityDetailPembelianBinding? = null
+    private var binding : ActivitydetailpembelianBinding? = null
     private var model : TokoModel? = null
     private var cartList : ArrayList<KeranjangModel> = ArrayList()
     private var username : String? = null
@@ -39,7 +37,7 @@ class DetailPembelianActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityDetailPembelianBinding.inflate(layoutInflater)
+        binding = ActivitydetailpembelianBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
         binding?.imageButton?.setOnClickListener {

@@ -15,8 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_pemesanan"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ProgressBar
         android:id="@+id/progressbar_pesanan"
@@ -27,17 +26,19 @@
         app:layout_constraintEnd_toEndOf="@+id/recyclerview_pesanan"
         app:layout_constraintStart_toStartOf="@+id/recyclerview_pesanan"
         app:layout_constraintTop_toTopOf="@+id/recyclerview_pesanan" />
+
     <TextView
         android:id="@+id/noData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:visibility="gone"
-        android:textColor="@color/black"
         android:text="Tidak Ada Pesanan"
+        android:visibility="gone"
+        android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerview_pesanan"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recyclerview_pesanan" />
+        app:layout_constraintEnd_toEndOf="@+id/progressbar_pesanan"
+        app:layout_constraintStart_toStartOf="@+id/progressbar_pesanan"
+        app:layout_constraintTop_toBottomOf="@+id/progressbar_pesanan"
+        app:layout_constraintVertical_bias="0.174" />
 </androidx.constraintlayout.widget.ConstraintLayout>
