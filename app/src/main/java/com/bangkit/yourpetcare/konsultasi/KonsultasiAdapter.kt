@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.yourpetcare.R
 import com.bangkit.yourpetcare.databinding.ItemListDokterBinding
 import com.bangkit.yourpetcare.konsultasi.chat_dokter.PesanActivity
+import com.bangkit.yourpetcare.konsultasi.chat_dokter.PesanActivity.Companion.EXTRA_DATA
 import com.bumptech.glide.Glide
 
 class KonsultasiAdapter(private val listDokter: ArrayList<Dokter>) : RecyclerView.Adapter<KonsultasiAdapter.ViewHolder>() {
@@ -40,6 +41,7 @@ class KonsultasiAdapter(private val listDokter: ArrayList<Dokter>) : RecyclerVie
             binding.tvNamadokter.text = dokter.username
             binding.btnChat.setOnClickListener {
                 val intent = Intent(itemView.context, PesanActivity::class.java)
+                intent.putExtra(EXTRA_DATA, dokter)
                 itemView.context.startActivity(intent)
             }
             itemView.setOnClickListener {
