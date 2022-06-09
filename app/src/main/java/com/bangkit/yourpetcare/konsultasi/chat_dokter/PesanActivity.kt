@@ -32,8 +32,10 @@ class PesanActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_blue_24)
 
-        val receiverUid = intent.getParcelableExtra<Dokter>(EXTRA_DATA)?.uid
+        val dataDokter = intent.getParcelableExtra<Dokter>(EXTRA_DATA)
+        val receiverUid = dataDokter?.uid
         val senderUid = FirebaseAuth.getInstance().currentUser?.uid
+        supportActionBar?.title = dataDokter?.username
         senderRoomUid = senderUid + receiverUid
         receiverRoomUid = receiverUid + senderUid
 

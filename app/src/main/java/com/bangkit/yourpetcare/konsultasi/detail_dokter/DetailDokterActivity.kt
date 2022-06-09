@@ -1,12 +1,14 @@
 package com.bangkit.yourpetcare.konsultasi.detail_dokter
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.bangkit.yourpetcare.R
 import com.bangkit.yourpetcare.databinding.ActivityDetailDokterBinding
 import com.bangkit.yourpetcare.konsultasi.Dokter
+import com.bangkit.yourpetcare.konsultasi.chat_dokter.PesanActivity
+import com.bangkit.yourpetcare.konsultasi.chat_dokter.PesanActivity.Companion.EXTRA_DATA
 import com.bumptech.glide.Glide
 
 class DetailDokterActivity : AppCompatActivity() {
@@ -32,15 +34,15 @@ class DetailDokterActivity : AppCompatActivity() {
                 tvNoStr.text = dataDokter.nomor
                 tvRiwayatPendidikan.text = dataDokter.riwayatPendidikan
                 tvTempatPraktik.text = dataDokter.tempatPraktik
+                btnChat.setOnClickListener {
+                    val intent = Intent(this@DetailDokterActivity, PesanActivity::class.java)
+                    intent.putExtra(EXTRA_DATA, dataDokter)
+                    startActivity(intent)
+                }
             }
         }
         binding.btnBack.setOnClickListener {
             finish()
         }
-    }
-
-    companion object {
-        const val EXTRA_DATA = "detail_dokter_extra_data"
-        val TAG = DetailDokterActivity::class.java.simpleName
     }
 }
