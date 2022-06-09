@@ -13,9 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Yourpetcare">
         <activity
-            android:name=".konsultasi.chat_dokter.PesanActivity"
-            android:parentActivityName=".beranda.MainActivity"
+            android:name=".konsultasi.user_message.UserMessageActivity"
             android:exported="false" />
+        <activity
+            android:name=".konsultasi.chat_dokter.PesanActivity"
+            android:exported="false"
+            android:parentActivityName=".beranda.MainActivity" />
         <activity
             android:name=".konsultasi.detail_dokter.DetailDokterActivity"
             android:exported="false" />

@@ -30,8 +30,8 @@ class KonsultasiViewModel : ViewModel() {
     private fun getDokterList() {
         try {
             val dataDokter = ArrayList<Dokter>()
+            // Gunakan .whereEqualTo(USER_ROLE, "dokter") setelah bug telah dibenarkan
             firebaseFirestore.collection(USERS_COLLECTION)
-                .whereEqualTo(USER_ROLE, "dokter")
                 .get()
                 .addOnSuccessListener { documents ->
                     for (document in documents) {

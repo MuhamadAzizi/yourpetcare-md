@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bangkit.yourpetcare.databinding.FragmentKonsultasiBinding
 import com.bangkit.yourpetcare.konsultasi.chat_dokter.PesanActivity.Companion.EXTRA_DATA
 import com.bangkit.yourpetcare.konsultasi.detail_dokter.DetailDokterActivity
+import com.bangkit.yourpetcare.konsultasi.user_message.UserMessageActivity
 
 class KonsultasiFragment : Fragment() {
 
@@ -65,6 +66,10 @@ class KonsultasiFragment : Fragment() {
         adapter.onItemClicked = { dokter ->
             val intent = Intent(context, DetailDokterActivity::class.java)
             intent.putExtra(EXTRA_DATA, dokter)
+            startActivity(intent)
+        }
+        binding.fabYourMessages.setOnClickListener {
+            val intent = Intent(context, UserMessageActivity::class.java)
             startActivity(intent)
         }
     }
