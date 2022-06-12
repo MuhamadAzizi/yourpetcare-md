@@ -1,5 +1,7 @@
 # yourpetcare-md
-Mobile Development for Product Based Capstone Project Bangkit Academy 2022
+![image](https://user-images.githubusercontent.com/99931472/173245878-d01747b7-c313-48c0-a24c-89d39fb573bf.png)
+Your Pet Care is an android based application that serves all needs related to all pets like dogs and cats it has pet shop features that can be bought online, pet detection, vet consultation, and many more.
+
 
 ## Project Member 
 * (ML) M2281G2425 - Dimas Rumekso Putra - Univeristas Negeri Medan 
