@@ -10,8 +10,8 @@ android {
 
     defaultConfig {
         applicationId "com.bangkit.yourpetcare"
-        minSdk 24
-        targetSdk 31
+        minSdk 21
+        targetSdk 30
         versionCode 1
         versionName "1.0"
 
@@ -69,5 +69,17 @@ dependencies {
     //tensor
     implementation 'org.tensorflow:tensorflow-lite-support:0.1.0'
     implementation 'org.tensorflow:tensorflow-lite-metadata:0.1.0'
+
+
+    //retrofit
+    def retrovit_version= "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrovit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrovit_version"
+    def okhttp_version= "4.7.2"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3"
+
+    implementation 'com.github.dhaval2404:imagepicker:1.8'
 
 }

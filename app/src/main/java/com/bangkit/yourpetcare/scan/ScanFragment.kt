@@ -1,96 +1,176 @@
 package com.bangkit.yourpetcare.scan
 
+import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import com.bangkit.yourpetcare.PermissionUtility
 import com.bangkit.yourpetcare.databinding.FragmentScanBinding
-import com.bangkit.yourpetcare.ml.Bird
-import com.bangkit.yourpetcare.ml.ML
-import org.tensorflow.lite.support.image.TensorImage
+import okhttp3.MultipartBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.File
 
-class ScanFragment : Fragment() {
+class ScanFragment : Fragment(), UploadRequestBody.UploadCallback {
 
     private var binding: FragmentScanBinding? = null
-    private var REQUEST_GALLERY = 123
+    private val TAG = ScanFragment::class.java.simpleName
+    private val PERMISSIONS = arrayOf(
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
+    )
+    private var permissionUtility: PermissionUtility? = null
+
+    //    private lateinit var presenter: ScanPresenter
+    private var selectedImageUri: Uri? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         binding = FragmentScanBinding.inflate(layoutInflater, container, false)
-        return binding?.root
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         binding?.btnTakePhoto?.setOnClickListener {
-            accessPhoto()
+            uploadPhoto()
+        }
+        permissionUtility = PermissionUtility(requireActivity(), PERMISSIONS)
+
+        binding?.imgPreview?.setOnClickListener {
+            if (permissionUtility!!.arePermissionsEnabled()) {
+                openImage()
+            }else{
+                permissionUtility!!.requestMultiplePermissions()
+            }
+
+        }
+        return binding?.root
+    }
+
+
+    private fun openImage() {
+        Intent(Intent.ACTION_PICK).also {
+            it.type = "image/*"
+            val mimeTypes = arrayOf("image/jpeg", "image/png")
+            it.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
+            startActivityForResult(it, REQUEST_CODE_PICK_IMAGE)
         }
     }
 
-    private fun accessPhoto() {
-        if (ContextCompat.checkSelfPermission(requireActivity(), android.Manifest.permission.CAMERA)
-            == PackageManager.PERMISSION_GRANTED
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (!permissionUtility!!.onRequestPermissionsResult(
+                requestCode,
+                permissions.toMutableList(),
+                grantResults
+            )
         ) {
-            takePhotoPreview.launch(null)
+            permissionUtility!!.requestMultiplePermissions()
         } else {
-            requestPermission.launch(android.Manifest.permission.CAMERA)
+            openImage()
+
         }
     }
 
-    //request camera permission
-    private val requestPermission =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
-            if (granted) {
-                takePhotoPreview.launch(null)
-            } else {
-                Toast.makeText(activity, "Permission Denied!", Toast.LENGTH_SHORT).show()
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                REQUEST_CODE_PICK_IMAGE -> {
+
+                    selectedImageUri = data?.data
+                    binding?.imgPreview?.setImageURI(selectedImageUri)
+                }
             }
         }
+    }
 
-    //launch camera and take picture
-    private val takePhotoPreview =
-        registerForActivityResult(ActivityResultContracts.TakePicturePreview()) { bitmap ->
-            if (bitmap != null) {
-                binding?.imgPreview?.setImageBitmap(bitmap)
-                outputGenerator(bitmap)
+    private fun uploadPhoto() {
+        selectedImageUri?.let {
+            context?.let { mcontext ->
+                binding?.progressbarScan?.visibility= View.VISIBLE
+                Log.d("daa uploadPhoto", "uri iamge  $selectedImageUri")
+                val file = File(getRealPathFromURI(mcontext, it))
+                val progressCallback = UploadRequestBody(file, "image/*", this)
+                val body = MultipartBody.Part.createFormData("file", file.name, progressCallback)
+                ApiService.invoke().predict(body).enqueue(object : Callback<ScanResponse> {
+                    override fun onResponse(
+                        call: Call<ScanResponse>,
+                        response: Response<ScanResponse>
+                    ) {
+                        binding?.progressbarScan?.visibility= View.GONE
+                        Log.d("daa uploadPhoto", "uri iamge  aresponse")
+                        if (response.isSuccessful) {
+                            if (response.body()?.message.equals("success")) {
+                                binding?.tvResult?.text = response.body()?.predicted
+                                binding?.tvResultConfidence?.text = response.body()?.confidence.toString()
+                            }
+                        } else {
+                            Toast.makeText(
+                                mcontext,
+                                response.message() ?: "Failed Response",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                        }
+                    }
+
+                    override fun onFailure(call: Call<ScanResponse>, t: Throwable) {
+                        Log.d("daa uploadPhoto", "uri iamge  failed "+t.message)
+                        binding?.progressbarScan?.visibility= View.GONE
+
+                        Toast.makeText(mcontext, t.message, Toast.LENGTH_SHORT).show()
+                    }
+
+                })
             }
         }
-
-    private fun outputGenerator(bitmap: Bitmap){
-        val model = ML.newInstance(requireContext())
-
-        val newBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
-
-        // Creates inputs for reference.
-        val image = TensorImage.fromBitmap(newBitmap)
-
-        // Runs model inference and gets result.
-        val outputs = model.process(image)
-            .probabilityAsCategoryList.apply {
-                sortByDescending { it.score }
-            }
-
-        val highProbabilityOutput = outputs[0]
-
-        //setting ouput text
-        binding?.tvResult?.text = highProbabilityOutput.label
 
     }
+
+    fun getRealPathFromURI(
+        context: Context,
+        contentUri: Uri
+    ): String? {
+        var cursor: Cursor? = null
+        return try {
+            val proj =
+                arrayOf(MediaStore.Video.Media.DATA)
+            cursor = context.contentResolver.query(contentUri, proj, null, null, null)
+            val column_index = cursor!!.getColumnIndexOrThrow(MediaStore.Video.Media.DATA)
+            cursor.moveToFirst()
+            cursor.getString(column_index)
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+            ""
+        } finally {
+            cursor?.close()
+        }
+    }
+
+    override fun onProgressUpdate(percentage: Int) {
+        binding?.progressbarScan?.progress = percentage
+    }
+
+    companion object {
+        const val REQUEST_CODE_PICK_IMAGE = 101
+    }
+
 }

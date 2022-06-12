@@ -1,33 +1,54 @@
 package com.bangkit.yourpetcare.scan
 
-import com.google.gson.GsonBuilder
-import okhttp3.OkHttp
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import android.os.Handler
+import android.os.Looper
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody
+import okio.BufferedSink
+import java.io.File
+import java.io.FileInputStream
 
-private const val baseUrl = "https://yourpetcare-safmcqat4a-uc.a.run.app"
+class UploadRequestBody(
+    private val file: File,
+    private val contentType: String,
+    private val callback: UploadCallback
+) : RequestBody() {
 
-object ApiClient{
+    override fun contentType() = "$contentType/*".toMediaTypeOrNull()
 
+    override fun contentLength() = file.length()
 
-    fun getService() : ApiService{
-        val logging = HttpLoggingInterceptor()
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+    override fun writeTo(sink: BufferedSink) {
+        val length = file.length()
+        val buffer = ByteArray(DEFAULT_BUFFER_SIZE)
+        val fileInputStream = FileInputStream(file)
+        var uploaded = 0L
+        fileInputStream.use { inputStream ->
+            var read: Int
+            val handler = Handler(Looper.getMainLooper())
+            while (inputStream.read(buffer).also { read = it } != -1) {
+                handler.post(ProgressUpdater(uploaded, length))
+                uploaded += read
+                sink.write(buffer, 0, read)
+            }
+        }
+    }
 
-        val client = OkHttpClient
-            .Builder()
-            .addInterceptor(logging)
-            .build()
+    interface UploadCallback {
+        fun onProgressUpdate(percentage: Int)
+    }
 
-        val gson = GsonBuilder().serializeNulls().create()
+    inner class ProgressUpdater(
+        private val uploaded: Long,
+        private val total: Long
+    ) : Runnable {
+        override fun run() {
+            callback.onProgressUpdate((100 * uploaded / total).toInt())
+        }
+    }
 
-        return Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .client(client)
-            .build()
-            .create(ApiService::class.java)
+    companion object {
+        private const val DEFAULT_BUFFER_SIZE = 2048
     }
 }
