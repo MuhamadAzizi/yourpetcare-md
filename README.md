@@ -22,3 +22,8 @@ To create this application, we use the MVVM architecture. Then use Camerax to ta
 
 # Progress Report Mobile Development Path: 
 1. Have made a UI/UX design
+2. Have completed the login & register feature
+3. Have completed the scan feature
+4. Have completed the article feature
+5. Have completed the consultation chat feature
+6. Have completed the store feature
